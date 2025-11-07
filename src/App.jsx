@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import ProfileHeader from './components/ProfileHeader';
+import Hero3D from './components/Hero3D';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
@@ -11,7 +11,7 @@ function App() {
     <div className="min-h-screen w-full bg-white font-inter text-slate-900 dark:bg-black dark:text-white">
       <Navbar />
       <main className="w-full pt-20">
-        <ProfileHeader />
+        <Hero3D />
         <Experience />
         <Projects />
         <Achievements />
