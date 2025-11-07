@@ -1,11 +1,11 @@
 import React from 'react';
-import { ExternalLink, Github, Rocket, Star } from 'lucide-react';
+import { ExternalLink, Github, Star } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Cosmic-OS (Android AOSP)',
+    title: 'Android Custom ROM (AOSP)',
     description:
-      'A space-themed Android AOSP custom ROM focused on performance, delightful UX, and battery life. Includes a polished setup wizard, custom theming engine, and OTA system.',
+      'An Android AOSP-based custom ROM focused on reliability, performance, and clean UX. Includes setup wizard refinements, theming, and OTA updates.',
     tags: ['Android', 'AOSP', 'Kotlin', 'Gradle'],
     links: {
       repo: 'https://github.com/octocat',
@@ -14,19 +14,19 @@ const projects = [
     highlight: true,
   },
   {
-    title: 'Star Mapper',
+    title: 'Mapping Visualization Platform',
     description:
-      'Realtime constellation visualizer that renders star positions and routes with WebGL. Designed for planetarium-grade clarity and performance.',
-    tags: ['Three.js', 'WebGL', 'TypeScript'],
+      'Interactive web application that renders geospatial datasets and routes with smooth performance and clear presentation.',
+    tags: ['WebGL', 'TypeScript', 'React'],
     links: {
       repo: 'https://github.com/octocat',
       demo: '#',
     },
   },
   {
-    title: 'Nebula Notes',
+    title: 'Markdown Notes App',
     description:
-      'A markdown-first note app with offline-first sync and elegant, distraction-free UI.',
+      'A markdown-first notes application with offline sync and a minimal, distraction-free editor.',
     tags: ['PWA', 'React', 'IndexedDB'],
     links: {
       repo: 'https://github.com/octocat',
@@ -34,9 +34,9 @@ const projects = [
     },
   },
   {
-    title: 'Orbit Commerce',
+    title: 'E‑commerce Frontend',
     description:
-      'Modern storefront with headless CMS, blazing-fast search, and a cosmic aesthetic theme.',
+      'Modern storefront integrating a headless CMS and secure payments with responsive UI components.',
     tags: ['Next.js', 'Tailwind', 'Stripe'],
     links: {
       repo: 'https://github.com/octocat',
@@ -47,22 +47,21 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative w-full bg-black py-20 text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/20 via-black to-black" />
+    <section id="projects" className="relative w-full bg-white py-20 text-slate-900 dark:bg-black dark:text-white">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-12 flex items-center justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold md:text-4xl">Featured Projects</h2>
-            <p className="mt-2 text-violet-200/80">A selection of recent work across mobile and web.</p>
+            <h2 className="text-3xl font-bold md:text-4xl">Projects</h2>
+            <p className="mt-2 text-slate-600 dark:text-slate-300">Representative work across mobile and web.</p>
           </div>
           <a
             href="https://github.com/octocat"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-900 hover:bg-slate-50 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
           >
             <Github className="h-4 w-4" />
-            Explore GitHub
+            View GitHub
           </a>
         </div>
 
@@ -70,26 +69,20 @@ const Projects = () => {
           {projects.map((p) => (
             <article
               key={p.title}
-              className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10 ${
-                p.highlight ? 'ring-2 ring-violet-500/40' : ''
+              className={`group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md dark:border-white/10 dark:bg-white/5 ${
+                p.highlight ? 'ring-2 ring-indigo-500/30' : ''
               }`}
             >
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-xl font-semibold">{p.title}</h3>
-                {p.highlight ? (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-violet-600/20 px-3 py-1 text-xs text-violet-200">
-                    <Rocket className="h-3 w-3" /> Highlight
-                  </span>
-                ) : (
-                  <Star className="h-4 w-4 text-yellow-300/80" />
-                )}
+                {!p.highlight && <Star className="h-4 w-4 text-amber-400/80" />}
               </div>
-              <p className="mb-4 text-sm text-violet-100/90">{p.description}</p>
+              <p className="mb-4 text-sm text-slate-700 dark:text-slate-200">{p.description}</p>
               <div className="mb-6 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-violet-100/90"
+                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
                   >
                     {t}
                   </span>
@@ -98,7 +91,7 @@ const Projects = () => {
               <div className="flex items-center gap-3">
                 <a
                   href={p.links.demo}
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-500 via-violet-500 to-indigo-500 px-4 py-2 text-xs font-semibold text-white shadow-md transition hover:opacity-90"
+                  className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-indigo-700"
                 >
                   Live Demo
                   <ExternalLink className="h-3.5 w-3.5" />
@@ -107,7 +100,7 @@ const Projects = () => {
                   href={p.links.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs text-white hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs text-slate-900 hover:bg-slate-50 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
                 >
                   <Github className="h-3.5 w-3.5" />
                   Repo
